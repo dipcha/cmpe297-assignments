@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Registration Page </title>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <script type="text/javascript" src="../static/js/function.js" ></script>
+	<style>
+		#myForm{ border: 1px solid grey;width:50%;padding:2%;border-radius: 4px;background-color: #fff; }
+		#status {text-align:left;}
+		#status.online {color:green;}
+		#status.offline{color:blue;}
+    </style>
+  </head>
+  <body style="margin:auto;padding-left:20%;padding-top:2%;background-color:#ccc;" onload="loaded();"><fieldset>
+    <div class="container">
+      <form class="form-signin" role="form" id="myForm" name="myForm">
+        
+		<div id="status"></div>
+		<div id="logStatus"></div>
+		<div id="log"></div>
+		<div id="div1"></div>
+           <h3 class="form-signin-heading">Registration Form</h3>
+           <input type="text" placeholder="First Name" id="fname"> <br/>
+           <input type="text"  placeholder="Last Name" id="lname"><br/>
+           <input type="email" placeholder="Email address" id="email" onBlur="isValidEmail()"><br/>
+           <input type="password" placeholder="Password" title="Password must contain minimum 3 upper case, 2 lower case and 2 special chars" onBlur="checkPassword()" id="pass">
+           <i class="icon-question-sign"  title="Password must contain minimum 3 upper case, 2 lower case and 2 special chars"></i>
+           <progress value="0" max="100" name="progress" id="progress"></progress>
+           <br/>
+           <input type="password" placeholder="Confirm Password" id="cpass" onBlur="matchpasswords()"><span id="Span1"></span><br/>
+           <input type="date" name="DOB" id="dob" placeholder="mm-dd-yyyy"><br/>
+           <input type="text" placeholder="DOB with time"><br/>
+           <input type="date" name="LDOB" id="ldob" placeholder="Local Date of Birth"><br/>
+           <input type="text" name="ssn" id="ssn" pattern="^\d{3}-\d{2}-\d{4}$" title="Social Security Number" placeholder="xxx-xx-xxxx"><br/>
+           <input type="tel" placeholder="Phone number: xxx-xxx-xxxx" id="phone" onBlur="isPhoneNumberFormatValid()"><span id="Span2"></span><br/>
+           <input type="tel" pattern="^\d{4}-\d{4}-\d{4}-\d{4}$" placeholder="Credit Card: xxxx-xxxx-xxxx-xxxx" id="credit"><br/>
+<!--		<button class="btn btn-primary" type="submit" onclick="localSave();">Register</button>      -->
+           <button class="btn btn-primary" type="submit" onclick="SaveToStorages();">Register</button>      
+		   <br/>
+		   <table>
+				<tr>
+					<td>
+						<button onclick="Javascript:toJSONString();">Convert to JSON String</button>
+					</td>
+					<td>
+						<button onclick="Javascript:readFromJSONString();">Read From JSON String</button>
+					</td>
+				</tr>
+				
+				<tr>
+				<br/>
+					<td>
+					<button onclick="Javascript:SaveToSessionStorage();">SaveToSessionStorage</button>
+					</td>
+					<td>
+					<button onclick="Javascript:ReadFromSessionStorage();">ReadFromSessionStorage</button>
+					</td>
+				</tr>
+				<tr>
+					<td><button onclick="Javascript:clearStorage();">Clear Storages </button></td>
+				</tr>
+			</table>
+    </form>
+	
+    </div> <!-- /container -->
+  </body>
+</html>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<style type="text/css">
+		#image1{
+		float:right;
+		}
+	</style>
+	</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          </button>         
+        </div>
+      </div>
+    </div><br/><br/><br/>
+	<div class="container theme-showcase" role="main">
+	<section class="container">
+		<div class="login">
+			<h1>Login to the GRE QUIZ !</h1><br/>
+			<div id="error"></div>
+			<form method="post" name="login" action="1.html" onsubmit="return login(this);">
+				<p><input type="text" id="username" name="username" value="" placeholder="Username or email"></p>
+				<p><input type="password" id="password" name="password" value="" placeholder="Password"></p>
+				<p><input type="submit" name="button" id="button" value="Submit" /></p>
+		</div>
+			<div class="login-help">
+				<p> <a href="index.html"> Create Account/Forgot? click here.</a>
+			</div>
+			</form>
+	</section>
+	<footer id="footer">
+		<div class="container">
+			<p>Copyright &copy; 2014</p>
+		</div>
+	</footer>
+</body>
+</html>

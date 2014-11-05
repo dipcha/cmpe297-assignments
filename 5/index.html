@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+<link rel="stylesheet" type="text/css" href="../background.css">
+
+<style>
+
+	div {
+    background-color: #8A2BE2;
+	position:absolute;
+    width: 300px;
+    padding: 25px;
+    border: 50px solid #6495ED;
+	height:200px;
+    z-index:15;
+    top:20%;
+    left:50%;
+    margin:-100px 0 0 -150px;
+	
+	}
+</style>
+	</style>
+</head>
+
+<body style="background-color:#eee;">
+    <h2 style="text-align:center;padding-left:7%;padding-top:10px;">Welcome to FIND YOUR GRDAE!! </h2>
+    <h4>Please slide to get your grade !</h4>
+    <div id="a" align="center">
+    <label for=fader>Quiz 1 Score  </label>
+    <input type=range min=0 max=100 value=0 id=fader step=1 onchange="quiz1(value)">
+    <output for=fader id=quiz1>0</output>  <br><br/>
+    <label for=fader>Quiz 2 Score  </label>
+    <input type=range min=0 max=100 value=0 id=fader step=1 onchange="quiz2(value)">
+    <output for=fader id=quiz2>0</output> <br><br/>
+    <label for=fader>Midterm Score </label>
+    <input type=range min=0 max=100 value=0 id=fader step=1 onchange="midterm(value)">
+    <output for=fader id=midterm>0</output> <br><br/> <br><br/>
+    <input type="submit" value="Grade Me" onclick="grade()">
+    <input type="submit" value="Cancel" onclick="refresh()">
+    </div>
+</body>
+<script>
+
+function quiz1(vol) {
+document.querySelector('#quiz1').value = vol;
+q1 = Number(vol);
+
+}
+function quiz2(vol) {
+document.querySelector('#quiz2').value = vol;
+q2 = Number(vol);
+}
+function midterm(vol) {
+document.querySelector('#midterm').value = vol;
+midterm = Number(vol);
+}
+function grade() {
+//var q1 = $("#quiz1).val();
+result = (q1 + q2 + midterm);
+avg = result/3;
+
+//alert(avg);
+WebSocketTest(avg);
+
+}
+
+function refresh() {
+window.location.reload();
+}
+
+function WebSocketTest(avg)
+{
+  if ("WebSocket" in window)
+  {
+     alert("WebSocket is supported by your Browser!");
+     // Let us open a web socket
+     var ws = new WebSocket("ws://localhost:3000");
+     ws.onopen = function()
+     {
+        // Web Socket is connected, send data using send()
+        alert('Ping sent !');
+        if (ws.readyState === 1) { 
+            alert(avg);
+            ws.send(avg);
+        }
+     };
+
+    ws.onerror = function (error) {
+        // just in there were some problems with conenction...
+        content.html($('<p>', { text: 'Sorry, but there\'s some problem with your ' + 'connection or the server is down.' } ));
+    };
+
+     ws.onmessage = function (message) 
+     { 
+        var received_msg = message.data;
+        alert("Message is received...");
+        alert(received_msg);
+     };
+
+     ws.onclose = function()
+     { 
+        // websocket is closed.
+        alert("Connection is closed..."); 
+     };
+  }
+  else
+  {
+     // The browser doesn't support WebSocket
+     alert("WebSocket NOT supported by your Browser!");
+  }
+}
+</script>
+</html>

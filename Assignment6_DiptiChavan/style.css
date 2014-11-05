@@ -1,0 +1,22 @@
+#chart_div {
+    position: fixed;
+    top: 85px;
+    left: 95px;
+}
+#donutchart {
+    position: fixed;
+    top: 85px;
+    right: 560px;
+}
+
+
+html {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 100%;
+}
+body
+ {
+    position: center;
+	right: 100px;
+    background-color: #eee;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+	<script src="js/jquery-2.1.1.js"></script>
+	<body role="document">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          </button>         
+        </div>
+      </div>
+		<div class="navbar-header">
+			<p style="color:#fff;font-size:18px;padding-top:10px;margin-left:5px;">Question 3 - English </p>
+			  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+			  </button>         
+		</div>
+    </div><br/><br/><br/><br/><br/><br/>
+	<div class="container theme-showcase" role="main">
+		<section>
+			<aside class="col-md-7">
+				<form id="myForm" method="post" action="4.html">
+					<p>As per the latest Twitter news , complete the article snippet given by selecting the appropriate choices for the blanks.</p>
+					<label for="option1"> Mark 1 :</label>
+					<input type="radio" name="radio" id="radio11" value="$650" onclick="fillOption(this)"  data-answer="true"/> $650
+					<input type="radio" name="radio" id="radio12" value=" $550" onclick="fillOption(this)"  data-answer="false"/> $550
+					<input type="radio" name="radio" id="radio13" value=" $650" onclick="fillOption(this)"  data-answer="false"/> $750
+					
+					<br/><br/><br/>
+					<label for="option1"> Mark 2 :</label>
+					<input type="radio" name="radio1" id="radio21" data-value=Twitter value="Twitter" onclick="fillOption(this)" data-answer="true"/> Twitter
+					<input type="radio" name="radio1" id="radio22" data-value=google value="Google" onclick="fillOption(this)" data-answer="false"/> Google
+					<input type="radio" name="radio1" id="radio23" data-value=Facebook value="Facebook" onclick="fillOption(this)" data-answer="false"/> Facebook
+					<br/><br/>
+					<p><button  onclick="javascript:calculateScore();window.location.href='4.html'" >Submit & Next Question</button>  &nbsp;&nbsp; 
+			 <button onclick="reset()" >Cancel & Clear Selection</button></p> 
+				</form>
+			</aside>
+			<aside class="col-md-5">
+				<blockquote>
+					Twitter wants more cash. the company announced two $<mark id="option1" style="background-color:#ff0;">___________</mark> million debt offerings in a filing today, each with a potential $100 increase provided that the sales are oversubscribed. 
+					Assuming full tip , including the $100 million boosters  <mark id="option2" style="background-color:#ff0;">__________</mark> will raise up to $1.5 Billion with the two offerings.
+				</blockquote>
+				<br/>
+				<p>Source: http://techcrunch.com/2014/09/10/twitter-to-raise-up-to-1.5b-in-debt-offering/</p>
+			</aside>
+		</section>
+	</div>
+</body>
+
+<script type="text/javacsript">
+function test(){
+alert("helo");
+}
+</script>
+</html>
